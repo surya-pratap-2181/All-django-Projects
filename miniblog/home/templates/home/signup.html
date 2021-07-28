@@ -1,0 +1,18 @@
+{% extends 'home/base.html' %}
+{% block content %}
+<h1>Signup Page</h1>
+{% include 'home/error.html' %}
+<div class="container">
+    <form method="POST" novalidate>
+        {% csrf_token %}
+        {% for fm in form %}
+            <div class="form-group">
+                {{fm.label_tag}}
+                {{fm}}
+                <span class="text-danger">{{fm.errors|striptags}}</span>
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock content %}

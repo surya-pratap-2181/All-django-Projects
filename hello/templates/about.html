@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+About Us
+{% endblock title %}
+
+{% block body %}
+<div class="container my-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile No.</th>
+                <th scope="col">Consult</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.phone }}</td>
+                <td>{{ contact.desc }}</td>
+                <td><a class="btn btn-info" href="edit/{{ contact.id }}" role="button">Edit</a> - <a class="btn btn-danger" href="delete/{{ contact.id }}" role="button">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock body %}
